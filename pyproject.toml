@@ -2,7 +2,7 @@
 name = "video_extract"
 version = "0.1.0"
 description = """Data Engineer Take Home Challenge to extract and resize frames from videos to
-generate imagedatasets forvideo classification."""
+generate image datasets forvideo classification."""
 authors = ["João Teixeira <joaopteixeira58@gmail.com>"]
 
 [tool.poetry.dependencies]
@@ -11,11 +11,12 @@ opencv-python = "*"
 pydantic = "*"
 apache-airflow = "*"
 pendulum = "*"
+pre-commit = "*"
 
 [tool.poetry.dev-dependencies]
 pytest = "*"
 pytest-cov = "*"
-flake8 = "*"
+black = "*"
 isort = "*"
 
 
