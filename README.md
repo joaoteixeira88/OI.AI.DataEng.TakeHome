@@ -55,7 +55,7 @@ ve.generate_image_dataset(video_path="5548408-uhd_3840_2160_25fps.mp4", size=(22
 To be write
 
 
-## Changes
+## Changing Code Steps
 When you need to change the code please follow the following steps:
 
 1. Create a new branch
