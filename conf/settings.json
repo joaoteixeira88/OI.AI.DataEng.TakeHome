@@ -1,8 +1,0 @@
-{
-	"Video": {
-		"output_folder": "dataset",
-		"extract_output_folder": "frames",
-		"resize_output_folder": "resize_frames",
-		"frame_rate": 10
-	}
-}

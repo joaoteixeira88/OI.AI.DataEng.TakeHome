@@ -1,17 +1,20 @@
 [tool.poetry]
 name = "video_extract"
 version = "0.1.0"
-description = """Data Engineer Take Home Challenge to extract and resize frames from videos to
-generate image datasets forvideo classification."""
+description = "sss"
 authors = ["João Teixeira <joaopteixeira58@gmail.com>"]
+packages = [
+    { include = "project" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"
 opencv-python = "*"
 pydantic = "*"
-apache-airflow = "*"
+flytekit = "*"
 pendulum = "*"
 pre-commit = "*"
+marshmallow_enum = "*"  # Add this line
 
 [tool.poetry.dev-dependencies]
 pytest = "*"

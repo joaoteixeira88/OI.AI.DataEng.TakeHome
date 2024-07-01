@@ -25,30 +25,22 @@ poetry lock
 poetry install
 ```
 
-3. Add environment variable
-```bash
-export MAIN_SETTINGS='conf/settings.json'
-```
-
-4. Configure settings:
-
-The conf folder contains the settings files for the project and tests. To change parameters for dataset generation, modify the values in settings.json:
-```json
-{
-	"Video": {
-		"output_folder": "dataset", #Dataset Output folder
-		"extract_output_folder": "frames", #Inside the output folder you will have the video frames
-		"resize_output_folder": "resize_frames", #Inside the output folder you will have the rezise frames
-		"frame_rate": 10 #Value of frame rate
-	}
-}
-```
-
 5. Generate Dataset
+The are two ways of executing that, by code or using the pyflyte.
+
+Incorporated in the code:
+
 ```python
-ve = VideoExtract()
-ve.generate_image_dataset(video_path="5548408-uhd_3840_2160_25fps.mp4", size=(224, 224))
+from project.workflows import video_to_images_workflow
+
+video_to_images_workflow(video_path="5548408-uhd_3840_2160_25fps.mp4", resize_width=224, resize_height=224, frame_rate=10)
 ```
+
+Trough command line using pyflyte:
+```bash
+pyflyte run --project project --domain development project/workflows.py video_to_images_workflow --video_path 5548408-uhd_3840_2160_25fps.mp4 --resize_width 224 --resize_height 224 --frame_rate 10
+```
+
 
 ### Setup Docker
 
@@ -67,7 +59,6 @@ git checkout -b feature/<branch_name>
 3. Add unit and integration tests to cover as much as possible the code implemented
 
 ```bash
-export MAIN_SETTINGS='conf/settings.tests.json'
 pytest --cov=project
 ```
 
