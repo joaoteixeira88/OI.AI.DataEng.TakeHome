@@ -1,6 +1,6 @@
 # OI.AI.DataEng.TakeHome
 
-Python project to create a data pipeline (using airflow framework) to extract and resize frames from videos to generate image datasets for
+Python project to create a data pipeline (using flyte framework) to extract and resize frames from videos to generate image datasets for
 video classification. These datasets will be used to train models for identifying marine animals in videos.
 
 ## Setup
