@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "video_extract"
+version = "0.1.0"
+description = "sss"
+authors = ["João Teixeira <joaopteixeira58@gmail.com>"]
+packages = [
+    { include = "project" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+opencv-python = "*"
+pydantic = "*"
+flytekit = "*"
+pendulum = "*"
+pre-commit = "*"
+marshmallow_enum = "*"  # Add this line
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+pytest-cov = "*"
+black = "*"
+isort = "*"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
