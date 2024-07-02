@@ -42,9 +42,9 @@ pyflyte run --project project --domain development project/workflows.py video_to
 ```
 
 
-### Setup Docker
+### Setup Docker/Kubernetes ( ⚠️ Is not currently working  )
 
-To be write
+Is not currently working the dockerization of the project and of flytectl.
 
 
 ## Changing Code Steps
@@ -76,3 +76,14 @@ When you push commits to this repository, a pre-commit hook will be triggered to
 - **end-of-file-fixer**: Ensures that the end of each file has exactly one newline.
 - **check-yaml**: Validates that YAML files are properly formatted.
 - **check-merge-conflict**: Checks for unresolved merge conflicts in the code.
+
+## Developments
+
+* [x] Use a workflow orchestration tool to build the data pipeline: Flyte.
+* [x] Parameterize the number of frames-per-second to extract and the resolution of the generated images.
+* [x] Provide clear and concise documentation on how to set up and run the service.
+* [x] Use pre-commit hooks and lint the code.
+* [x] Add automated tests and perform data validation.
+* [ ] Deploy the service in Kubernetes. - All the configurations are almost done but is retrieving an error when executing the command `make register`
+* [x] Create a public or private repository and name it OI.AI.DataEng.TakeHome.
+* [x] Ensure the repository includes a comprehensive README file with setup instructions.

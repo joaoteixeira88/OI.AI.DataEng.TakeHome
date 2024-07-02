@@ -1,32 +1,22 @@
-# Variables
-IMAGE_NAME = flyte-video-classification
+# Makefile
 
-# Docker build command
-.PHONY: build
+.PHONY: build up down run package register
+
 build:
-	docker build -t $(IMAGE_NAME) .
+	docker-compose build
 
-# Ensure data directory exists
-.PHONY: prepare
-prepare:
-	mkdir -p data/output
+up:
+	docker-compose up -d
 
-# Docker run command
-.PHONY: run
-run: prepare
-	docker run -it --rm -v $(PWD)/data:/app/data $(IMAGE_NAME)
+down:
+	docker-compose down
 
-# Flytekit run command (adjust the paths as necessary)
-.PHONY: flyte-run
-flyte-run:
-	docker run -it --rm -v $(PWD)/data:/app/data $(IMAGE_NAME) poetry run pyflyte run --remote \
-	--project project --domain development \
-	project/workflows.py video_to_images_workflow \
-	--video_path data/sample_video.mp4 --resize_width 224 --resize_height 224 --frame_rate 10
+run:
+	docker-compose run flyte
 
-#docker run -it --rm -v data:/app/data flyte-video-classification poetry run pyflyte run --remote --project project --domain development project/workflows.py video_to_images_workflow --video_path 5548408-uhd_3840_2160_25fps.mp4
+package:
+	poetry build
+	tar -czvf package2.tar.gz project/create_dataset.py project/video_extract.py project/workflows.py project/crosscutting
 
-# Clean the output directory
-.PHONY: clean
-clean:
-	rm -rf data/output
+register: package
+	flytectl register files --project flytesnacks --domain development --archive package2.tar.gz
